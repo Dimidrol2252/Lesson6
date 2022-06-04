@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script>
+			function addTask()
+			{
+				var tasks_list = document.getElementById('current');
+				var new_task = document.createElement('li');
+				new_task.innerHTML = prompt("Какую задачу добавить?");
+				tasks_list.appendChild(new_task);
+			}
+			function delTask()
+			{
+				var tasks_list = document.getElementById('current');
+				var task_number = prompt("Какую по номеру задачу переместить?");
+				
+				var taskDel = tasks_list.childNodes[task_number];
+				tasks_list.removeChild(taskDel);
+				var tasks_del_list = document.getElementById('done');
+				tasks_del_list.appendChild(taskDel);
+			}
+		
+		</script>
+	</head>
+	<body>
+		<input value="Добавить задачу" type="button" onclick="addTask();">
+		<input value="Удалить задачу" type="button" onclick="delTask();">
+		<h1>Текущие задачи</h1>
+		<ol id="current">
+			
+		</ol>
+		<h1>Завершенные задачи</h1>
+		<ol id="done">
+			
+		</ol>
+	</body>
+</html>
